@@ -5,10 +5,11 @@ import neat
 
 class Evaluator:
 
-    def __init__(self, config, environment, group_size):
+    def __init__(self, config, environment, group_size, *env_args):
         self.config = config
         self.environment = environment
         self.group_size = group_size
+        self.env_args = env_args
 
     def get_random_groups(self, pop_size):
         random_order = [x for x in range(pop_size)]
@@ -26,7 +27,7 @@ class Evaluator:
 
         scores = []
         for group in network_groups:
-            group_scores = self.environment.play(group)
+            group_scores = self.environment(self.env_args).play(list(group))
             scores.append(group_scores)
 
         return scores
