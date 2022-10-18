@@ -1,2 +1,3 @@
-# nothanks
-Buidling a neural netork to play the board game No Thanks! using NEAT.
+# nothanks      Cancel changes
+
+Neural network to play the board game No Thanks! using NEAT.
