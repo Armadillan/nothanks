@@ -1,5 +1,7 @@
 import neat
 
+import visualize
+
 import evaluator
 import env
 
@@ -23,9 +25,14 @@ evaluator_instance = evaluator.Evaluator(
 
 p = neat.Population(config)
 
+
+stats = neat.StatisticsReporter()
+p.add_reporter(stats)
 p.add_reporter(neat.StdOutReporter(True))
-p.add_reporter(neat.StatisticsReporter())
 
 w = p.run(evaluator_instance.eval_genomes, 200)
 
-# print(w)
+# visualize.draw_net(config, w)
+# visualize.draw_net(config, w, prune_unused=True)
+# visualize.plot_stats(stats, ylog=False, view=True)
+# visualize.plot_species(stats, view=True)
