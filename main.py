@@ -5,7 +5,7 @@ import env
 
 GROUP_SIZE = 4
 CONFIG_FILENAME = "NoThanks.config"
-ENVIRONMENT = env.NoThanks()
+ENVIRONMENT = env.NoThanks
 
 config = neat.Config(
     neat.DefaultGenome,
@@ -26,6 +26,6 @@ p = neat.Population(config)
 p.add_reporter(neat.StdOutReporter(True))
 p.add_reporter(neat.StatisticsReporter())
 
-w = p.run(evaluator_instance.eval_genomes, 1)
+w = p.run(evaluator_instance.eval_genomes, 200)
 
 # print(w)
