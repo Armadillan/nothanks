@@ -23,4 +23,9 @@ evaluator_instance = evaluator.Evaluator(
 
 p = neat.Population(config)
 
-p.run(evaluator_instance.eval_genomes, 1)
+p.add_reporter(neat.StdOutReporter(True))
+p.add_reporter(neat.StatisticsReporter())
+
+w = p.run(evaluator_instance.eval_genomes, 1)
+
+# print(w)

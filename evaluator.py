@@ -51,4 +51,8 @@ class Evaluator:
         flat_groups = [g_i for group in groups for g_i in group]
 
         for index, genome_id in enumerate(flat_groups):
+            #notmakes sure every genome is assigned fitness once
+            #shouldn't make a difference, but easier to test/debug
+            if index == pop_size:
+                break
             ordered_genomes[genome_id].fitness = -flat_scores[index]
