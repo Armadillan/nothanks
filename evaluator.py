@@ -19,7 +19,7 @@ class Evaluator:
             groups.append(random_order[i:i+self.group_size])
 
         if pop_size % self.group_size != 0:
-            groups[-1] += random_order[0:(pop_size % self.group_size)]
+            groups[-1].extend(random_order[:(self.group_size - pop_size % self.group_size)])
 
         return groups
 
