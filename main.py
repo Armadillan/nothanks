@@ -30,9 +30,8 @@ stats = neat.StatisticsReporter()
 p.add_reporter(stats)
 p.add_reporter(neat.StdOutReporter(True))
 
-w = p.run(evaluator_instance.eval_genomes, 200)
+w = p.run(evaluator_instance.eval_genomes, 1000)
 
-# visualize.draw_net(config, w)
-# visualize.draw_net(config, w, prune_unused=True)
-# visualize.plot_stats(stats, ylog=False, view=True)
+visualize.draw_net(config, w, view=True)
+visualize.plot_stats(stats, ylog=False, view=True)
 # visualize.plot_species(stats, view=True)
